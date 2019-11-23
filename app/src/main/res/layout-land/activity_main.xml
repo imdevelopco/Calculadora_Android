@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/consolaCalc"
+        android:layout_width="438dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="24dp"
+        android:gravity="right"
+        android:text="@string/consolaCalc"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/saveOnMemory"
+        android:layout_width="105dp"
+        android:layout_height="44dp"
+        android:onClick="onSaveMemory"
+        android:text="MS"
+        app:layout_constraintStart_toEndOf="@+id/recoveryMemory"
+        app:layout_constraintTop_toBottomOf="@+id/igual" />
+
+    <Button
+        android:id="@+id/exponente"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:onClick="onStartOperation"
+        android:text="^"
+        app:layout_constraintStart_toEndOf="@+id/raiz"
+        app:layout_constraintTop_toBottomOf="@+id/consolaCalc" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="76dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:onClick="showNumber"
+        android:text="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
+
+    <Button
+        android:id="@+id/suma"
+        android:layout_width="70dp"
+        android:layout_height="41dp"
+        android:onClick="onStartOperation"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/button6"
+        app:layout_constraintTop_toBottomOf="@+id/resta" />
+
+    <Button
+        android:id="@+id/igual"
+        android:layout_width="70dp"
+        android:layout_height="39dp"
+        android:onClick="onPressIgual"
+        android:text="="
+        app:layout_constraintStart_toEndOf="@+id/button9"
+        app:layout_constraintTop_toBottomOf="@+id/suma" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="67dp"
+        android:layout_height="41dp"
+        android:onClick="showNumber"
+        android:text="2"
+        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/dividir" />
+
+    <Button
+        android:id="@+id/recoveryMemory"
+        android:layout_width="96dp"
+        android:layout_height="43dp"
+
+        android:text="MR"
+        app:layout_constraintStart_toEndOf="@+id/button0"
+        app:layout_constraintTop_toBottomOf="@+id/button8" />
+
+    <Button
+        android:id="@+id/raiz"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:onClick="onStartOperation"
+        android:text="√"
+        app:layout_constraintStart_toEndOf="@+id/dividir"
+        app:layout_constraintTop_toBottomOf="@+id/consolaCalc" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="67dp"
+        android:layout_height="42dp"
+        android:onClick="showNumber"
+        android:text="5"
+        app:layout_constraintStart_toEndOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="76dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:onClick="showNumber"
+        android:text="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/multiplicar" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="64dp"
+        android:layout_height="41dp"
+        android:onClick="showNumber"
+        android:text="3"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/raiz" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="67dp"
+        android:layout_height="39dp"
+        android:onClick="showNumber"
+        android:text="8"
+        app:layout_constraintStart_toEndOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="76dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:onClick="showNumber"
+        android:text="7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/borrar"
+        android:layout_width="45dp"
+        android:layout_height="115dp"
+        android:onClick="borrarConsola"
+        android:text="C"
+        app:layout_constraintStart_toEndOf="@+id/exponente"
+        app:layout_constraintTop_toBottomOf="@+id/consolaCalc" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="64dp"
+        android:layout_height="41dp"
+        android:onClick="showNumber"
+        android:text="6"
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="64dp"
+        android:layout_height="40dp"
+        android:onClick="showNumber"
+        android:text="9"
+        app:layout_constraintStart_toEndOf="@+id/button8"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
+
+    <Button
+        android:id="@+id/dividir"
+        android:layout_width="67dp"
+        android:layout_height="40dp"
+        android:onClick="onStartOperation"
+        android:text="/"
+        app:layout_constraintStart_toEndOf="@+id/multiplicar"
+        app:layout_constraintTop_toBottomOf="@+id/consolaCalc" />
+
+    <Button
+        android:id="@+id/resta"
+        android:layout_width="70dp"
+        android:layout_height="41dp"
+        android:onClick="onStartOperation"
+        android:text="-"
+        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/exponente" />
+
+    <Button
+        android:id="@+id/button0"
+        android:layout_width="76dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:onClick="showNumber"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
+
+    <Button
+        android:id="@+id/multiplicar"
+        android:layout_width="76dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:onClick="onStartOperation"
+        android:text="*"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consolaCalc" />
+
+    <Button
+        android:id="@+id/ToActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="92dp"
+        android:layout_marginRight="92dp"
+        android:layout_marginBottom="28dp"
+        android:onClick="cambiarActivity"
+        android:text="+ info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
