@@ -10,6 +10,7 @@ import static android.content.Intent.EXTRA_TEXT;
 
 public class Main2Activity extends AppCompatActivity {
 
+    private  String lastResult ="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,8 +18,9 @@ public class Main2Activity extends AppCompatActivity {
 
         Bundle extra = getIntent().getExtras();
         String mensaje = extra.getString(EXTRA_TEXT);
+        lastResult = mensaje;
         TextView textView = (TextView) findViewById(R.id.resultadoAnterior);
-        textView.setText("El resultado de la última operación es: \n" + mensaje);
+        textView.setText("El resultado de la última operación es: \n" + lastResult);
     }
 }
 

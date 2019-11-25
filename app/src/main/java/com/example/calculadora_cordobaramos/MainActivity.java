@@ -12,7 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private String botonPresionado = "";
     private TextView consolaCalc;
-    private double dato1,dato2, resultado=0,MR;
+    private double dato1,dato2, resultado=0, resultadoEnviado,MR;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void showNumber(View view){
+
         if(findViewById(R.id.button0).isPressed()){
             botonPresionado +="0";
             consolaCalc.setText(botonPresionado);
-
         }
         if(findViewById(R.id.button1).isPressed()) {
             botonPresionado += "1";
@@ -131,10 +131,6 @@ public class MainActivity extends AppCompatActivity {
             }else if (dato1 == 0){
                 botonPresionado += "-" ;
                 this.showNumber(view);
-            }else{
-                dato1 = Double.parseDouble(botonPresionado);
-                botonPresionado += "-" ;
-                this.showNumber(view);
             }
 
         }
@@ -147,49 +143,52 @@ public class MainActivity extends AppCompatActivity {
             if (dato2 == 0){
                 popup("No puedes dividir por 0").show();
             }else{
-                resultado=(dato1/dato2);
+                resultadoEnviado = resultado=(dato1/dato2);
                 consolaCalc.setText(String.valueOf(resultado));
                 dato1 = 0;
                 dato2 = 0;
             }
 
         }
-
         if(!(botonPresionado.indexOf("+") < 0)){
             dato2= Double.parseDouble(botonPresionado.substring(botonPresionado.indexOf("+")+1));
-            resultado=dato1+dato2;
+            resultadoEnviado = resultado=dato1+dato2;
             consolaCalc.setText(String.valueOf(resultado));
             dato1 = 0;
             dato2 = 0;
+            botonPresionado=String.valueOf(resultado);
         }
         if(!(botonPresionado.indexOf("-") < 0)){
-            dato2= Double.parseDouble(botonPresionado.substring(botonPresionado.indexOf("-")+1));
-            resultado=dato1-dato2;
-            consolaCalc.setText(String.valueOf(resultado));
-            dato1 = 0;
-            dato2 = 0;
-        }else if (botonPresionado.indexOf("-") == 0){
-            dato2= Double.parseDouble(botonPresionado.substring(botonPresionado.lastIndexOf("-")+1));
-            resultado=dato1-dato2;
-            consolaCalc.setText(String.valueOf(resultado));
-            dato1 = 0;
-            dato2 = 0;
+            if (botonPresionado.lastIndexOf("-")> 0){
+                dato1= Double.parseDouble(botonPresionado.substring(0,botonPresionado.lastIndexOf("-")));
+                dato2= Double.parseDouble(botonPresionado.substring(botonPresionado.lastIndexOf("-")));
+                resultadoEnviado = resultado=((dato1 * -1)-dato2) * -1;
+                consolaCalc.setText(String.valueOf(resultado));
+                dato1 = 0;
+                dato2 = 0;
+            }else{
+                dato2= Double.parseDouble(botonPresionado.substring(botonPresionado.indexOf("-")));
+                resultadoEnviado = resultado=dato1-dato2;
+                consolaCalc.setText(String.valueOf(resultado));
+                dato1 = 0;
+                dato2 = 0;
+            }
+
         }
         if(!(botonPresionado.indexOf("*") < 0)){
             dato2= Double.parseDouble(botonPresionado.substring(botonPresionado.indexOf("*")+1));
-            resultado=dato1*dato2;
+            resultadoEnviado = resultado=dato1*dato2;
             consolaCalc.setText(String.valueOf(resultado));
             dato1 = 0;
             dato2 = 0;
         }
         if(!(botonPresionado.indexOf("^") < 0)){
             dato2= Double.parseDouble(botonPresionado.substring(botonPresionado.indexOf("^")+1));
-            resultado=Math.pow(dato1,dato2);
+            resultadoEnviado = resultado=Math.pow(dato1,dato2);
             consolaCalc.setText(String.valueOf(resultado));
             dato1 = 0;
             dato2 = 0;
         }
-
     }
 
     public void borrarConsola(View view) {
@@ -200,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
 
     public  void cambiarActivity(View view){
         Intent intent = new Intent(this, Main2Activity.class);
-        intent.putExtra(Intent.EXTRA_TEXT,String.valueOf(resultado));
+        intent.putExtra(Intent.EXTRA_TEXT,String.valueOf(resultadoEnviado));
         startActivity(intent);
     }
 
